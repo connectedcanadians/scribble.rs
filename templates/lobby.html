@@ -4,7 +4,7 @@
 
 <head>
     <title>Scribble.rs - Game</title>
-    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="/resources/style.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/lobby.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/lobby_players.css"/>
@@ -18,7 +18,13 @@
 {{template "header"}}
 
 <div id="lobby">
-
+    <div class="mask">
+        <p>Please </p>
+        <p>turn</p>
+        <p> the </p>
+        <p>screen </p>
+        <p>horizontally.</p>
+    </div>
     <div class="timeBox">
         <span id="time-left">
             <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><defs><style>.a{fill:none;}.b{fill:#cc362e;}</style></defs><rect class="a" width="56" height="56"/><g transform="translate(-1246 -236)"><g transform="translate(1252 236)"><path class="b" d="M29.361,957.365a1.867,1.867,0,0,0-1.672,1.867v6.222a1.867,1.867,0,0,0,1.866,1.866h1.867v1.808a22.4,22.4,0,1,0,9.956,0V967.32h1.867a1.867,1.867,0,0,0,1.867-1.866v-6.222a1.867,1.867,0,0,0-1.866-1.867H29.556a1.845,1.845,0,0,0-.194,0Zm2.061,3.733h9.956v2.489H31.422Zm3.733,6.222h2.489V968.6c-.413-.023-.826-.039-1.244-.039s-.832.016-1.244.039ZM36.4,972.3a18.666,18.666,0,1,1-18.667,18.666A18.638,18.638,0,0,1,36.4,972.3Zm-.019,1.205a1.867,1.867,0,0,0-1.847,1.906v1.245a1.867,1.867,0,0,0,3.734,0v-1.245a1.867,1.867,0,0,0-1.886-1.905Zm8.614,8.108a1.868,1.868,0,0,0-1.128.486l-6.611,5.891a3.043,3.043,0,0,0-.856-.136,3.111,3.111,0,1,0,3.111,3.13l6.844-6.105a1.867,1.867,0,0,0-1.361-3.267ZM20.65,989.1a1.869,1.869,0,1,0,.194,3.731h1.244a1.867,1.867,0,1,0,0-3.733H20.844a1.845,1.845,0,0,0-.194,0Zm29.867,0a1.869,1.869,0,1,0,.194,3.731h1.244a1.867,1.867,0,1,0,0-3.733H50.711a1.845,1.845,0,0,0-.194,0ZM36.38,1003.368a1.867,1.867,0,0,0-1.847,1.9v1.244a1.867,1.867,0,0,0,3.734,0v-1.244a1.867,1.867,0,0,0-1.886-1.906Z" transform="translate(-14 -957.362)"/></g></g></svg>
@@ -47,16 +53,57 @@
                <canvas id="drawing-board"></canvas>
                <div id="center-dialog">
                    <div id="word-dialog" class="center-dialog-content">
-                       <span class="dialog-title">Choose a word</span>
+                       <span class="dialog-title">Choose a word to draw</span>
                        <div class="word-button-container">
-                           <button id="word-button-zero" class="dialog-button" onclick="chooseWord(0)">Placeholder</button>
-                           <button id="word-button-one" class="dialog-button" onclick="chooseWord(1)">Placeholder</button>
-                           <button id="word-button-two" class="dialog-button" onclick="chooseWord(2)">Placeholder</button>
+                           <div id="word-button-zero" class="dialog-word-button" onclick="chooseWord(0)">hello</div>
+                           <div id="word-button-one" class="dialog-word-button" onclick="chooseWord(1)">world</div>
+                           <div id="word-button-two" class="dialog-word-button" onclick="chooseWord(2)">i am cc</div>
+                           <div id="skip" class="dialog-word-button skip" onclick="">skip my turn</div>
                        </div>
                    </div>
                    <div id="start-dialog" class="center-dialog-content">
-                       <span class="dialog-title">Start the game</span>
-                       <button class="dialog-button" onclick="startGame()">Start</button>
+                       <div class="dialog-button" onclick="startGame()">
+                           <div></div>
+                           <p>start game</p>
+                       </div>
+                   </div>
+                   <div id="score-dialog" class="center-dialog-content">
+                       <div class="score green">
+                           <div class="score-box">
+                               <div class="name">dora</div>
+                               <img src="../resources/image/avatar_hannah.png" alt="">
+                               <div class="score">+1123</div>
+                           </div>
+                           <div class="score-box">
+                           <div class="name">dora</div>
+                           <img src="../resources/image/avatar_hannah.png" alt="">
+                           <div class="score">+1123</div>
+                       </div>
+                           <div class="score-box">
+                               <div class="name">dora</div>
+                               <img src="../resources/image/avatar_hannah.png" alt="">
+                               <div class="score">+1123</div>
+                           </div>
+                           <div class="score-box">
+                               <div class="name">dora</div>
+                               <img src="../resources/image/avatar_hannah.png" alt="">
+                               <div class="score">+1123</div>
+                           </div>
+
+                       </div>
+                       <div class="score red">
+                           <div class="score-box">
+                               <div class="name">dora</div>
+                               <img src="../resources/image/avatar_hannah.png" alt="">
+                               <div class="score">0</div>
+                           </div>
+                           <div class="score-box">
+                               <div class="name">dora</div>
+                               <img src="../resources/image/avatar_hannah.png" alt="">
+                               <div class="score">0</div>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -73,12 +120,12 @@
            </div>
        </div>
 
-     <div id="chat" style="display: none">
+<!--     <div id="chat" style="display: none">
         <div id="message-container">
             <b>Type !nick "Name" to change your name.</b>
         </div>
 
-    </div>
+    </div>-->
   <!--  <form class="message-input-form" onsubmit="return sendMessage()">
         <input id="message-input" type="text" autocomplete="off" placeholder="Type your message"/>
     </form>-->
@@ -151,70 +198,13 @@
              </div>
          </div>
      </div>
-  <!--  <div id="toolbox">
-        <div class="pencil-sizes-container toolbox-group">
-            <label for="tool-type-pencil">
-                <input id="tool-type-pencil" class="custom-check-or-radio line-width-button"
-                       onchange="chooseTool(pen)" type="radio" name="tool-type" checked>
-                <div class="line-width-button-content">
-                    <span id="tool-type-pencil-button" style="font-size: 2rem;">✏️</span>
-                </div>
-            </label>
-            <label for="tool-type-fill">
-                <input id="tool-type-fill" class="custom-check-or-radio line-width-button"
-                       onchange="chooseTool(fillBucket)" type="radio" name="tool-type">
-                <div class="line-width-button-content">
-                    <img alt="Fill" title="Fill tool" src="/resources/fill.svg" width="40px"
-                         height="40px"/>
-                </div>
-            </label>
-            <label for="tool-type-rubber">
-                <input id="tool-type-rubber" class="custom-check-or-radio line-width-button"
-                       onchange="chooseTool(rubber)" type="radio" name="tool-type">
-                <div class="line-width-button-content">
-                    <img alt="Rubber" title="Rubber tool" src="/resources/rubber.svg" width="40px"
-                         height="40px"/>
-                </div>
-            </label>
-        </div>
-        <div class="pencil-sizes-container toolbox-group">
-            <label for="size8">
-                <input id="size8" class="custom-check-or-radio line-width-button" onchange="setLineWidth(8)"
-                       type="radio" name="line-width" checked>
-                <div class="line-width-button-content">
-                    <div id="size-8-button" class="dot"></div>
-                </div>
-            </label>
-            <label for="size15">
-                <input id="size15" class="custom-check-or-radio line-width-button" onchange="setLineWidth(15)"
-                       type="radio" name="line-width">
-                <div class="line-width-button-content">
-                    <div id="size-15-button" class="dot"></div>
-                </div>
-            </label>
-            <label for="size30">
-                <input id="size30" class="custom-check-or-radio line-width-button" onchange="setLineWidth(30)"
-                       type="radio" name="line-width">
-                <div class="line-width-button-content">
-                    <div id="size-30-button" class="dot"></div>
-                </div>
-            </label>
-            <label for="size40">
-                <input id="size40" class="custom-check-or-radio line-width-button" onchange="setLineWidth(40)"
-                       type="radio" name="line-width">
-                <div class="line-width-button-content">
-                    <div id="size-40-button" class="dot"></div>
-                </div>
-            </label>
-        </div>
-        <button class="canvas-button toolbox-group" style="font-size: 2rem;" onclick="clearCanvasAndSendEvent()"
-                alt="Clear the canvas" title="Clear the canvas">🗑
-        </button>
-    </div>-->
 </div>
 
 <script type="text/javascript" src="/resources/floodfill.js"></script>
 <script type="text/javascript">
+
+
+
     console.log("Attempting Connection on port " + location.port + "...");
     let socket;
     if (location.protocol === 'https:') {
@@ -222,7 +212,6 @@
     } else {
         socket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/v1/ws?lobby_id={{.LobbyID}}");
     }
-
     const messageInput = document.getElementById("message-input");
     const playerContainer = document.getElementById("1player-container");
     const wordContainer = document.getElementById("word-container");
@@ -297,20 +286,20 @@
     setLineWidth(5);
 
     //Those are not scaled for now, as the whole toolbar would then have to incorrectly size up and down.
-    document.getElementById("size-8-button").style.width = 8 + "px";
+    /*document.getElementById("size-8-button").style.width = 8 + "px";
     document.getElementById("size-8-button").style.height = 8 + "px";
     document.getElementById("size-15-button").style.width = 15 + "px";
     document.getElementById("size-15-button").style.height = 15 + "px";
     document.getElementById("size-30-button").style.width = 30 + "px";
     document.getElementById("size-30-button").style.height = 30 + "px";
     document.getElementById("size-40-button").style.width = 40 + "px";
-    document.getElementById("size-40-button").style.height = 40 + "px";
+    document.getElementById("size-40-button").style.height = 40 + "px";*/
 
     function startGame() {
         socket.send(JSON.stringify({
             type: "start",
-        }))
-        startDialog.style.visibility = "hidden";
+        }));
+        startDialog.style.display = "hidden";
     }
 
     function setColor(value) {
@@ -497,7 +486,7 @@
         wordButtonZero.textContent = wordOne;
         wordButtonOne.textContent = wordTwo;
         wordButtonTwo.textContent = wordThree;
-        wordDialog.style.visibility = "visible";
+        wordDialog.display="flex";
     }
 
     function playWav(file) {
@@ -511,9 +500,9 @@
     window.setInterval(function () {
         let secondsLeft = Math.floor((roundEndTime - new Date().getTime()) / 1000);
         if (secondsLeft >= 0) {
-            timeLeft.innerText = "Time Left: " + secondsLeft;
+            /*timeLeft.innerText = "Time Left: " + secondsLeft;*/
         } else {
-            timeLeft.innerText = "Time Left: ∞";
+           /* timeLeft.innerText = "Time Left: ∞";*/
         }
     }, 500);
 
@@ -903,9 +892,53 @@
         // document.querySelector('#unpublish').addEventListener('click',()=>{video.unpublishVideo()});
     </script>
     <script>
+        //listrener screen size
+        window.addEventListener("resize",()=>{
+            window.innerWidth<window.innerHeight?$(".mask").css("display","flex"):$(".mask").css("display","none");
+        });
+
         window.addEventListener('load', function () {
             video.joinVideo();
-})
+});
+        //show tool
+
+
+        setTimeout(()=>{
+            $("#cc-toolbox").css({'transform':'translateX(0)'});
+            $("#player-container").css({'transform':'translateX(-150%)'});
+        },500);
+        setTimeout(()=>{
+
+            $("#cc-toolbox").css({'transform':'translateX(-150%)'});
+            $("#player-container").css({'transform':'translateX(0)'});
+        },3000);
+        //$("#player-container").css({'transform':'translateY(-150%)'});
+        //show player
+       // $("#cc-toolbox").css({'transform':'translateX(-150%)'});
+        //$("#player-container").css({'transform':'translateY(0)'});
+
+
+         function show(a) {
+             $(a).css("display","block");
+             $("#center-dialog").css("display","block");
+         };
+        function hide(a) {
+            $(a).css("display","none");
+            $("#center-dialog").css("display","none");
+        };
+        setTimeout(()=>{
+            show("#start-dialog")
+        },10);
+        setTimeout(()=>{
+            hide("#start-dialog")
+        },1000);
+        setTimeout(()=>{
+            show("#score-dialog");
+        },1500);
+        setTimeout(()=>{
+            hide("#score-dialog")
+        },4000);
+
     </script>
 </body>
 

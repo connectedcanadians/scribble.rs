@@ -1,8 +1,8 @@
 #player-container {
-    /*grid-area: player-container;*/
-    display: none;
+    display: grid;
     grid-area: 2 / 1/ 3 / 2;
     grid-template-rows: 8vh 7vh 7vh 7vh 7vh 7vh 7vh 7vh 7vh 7vh;
+    transition: 1s;
 }
 .playerBox{
     display: grid;
@@ -33,7 +33,7 @@
 }
 
 .playerBox  img{
-    height: 100%;
+    height: 7vh;
     display: block;
 }
 
