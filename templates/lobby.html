@@ -900,45 +900,48 @@
         window.addEventListener('load', function () {
             video.joinVideo();
 });
-        //show tool
-
-
+        //switch to tool and playlist
         setTimeout(()=>{
             $("#cc-toolbox").css({'transform':'translateX(0)'});
             $("#player-container").css({'transform':'translateX(-150%)'});
         },500);
-        setTimeout(()=>{
 
+        setTimeout(()=>{
             $("#cc-toolbox").css({'transform':'translateX(-150%)'});
             $("#player-container").css({'transform':'translateX(0)'});
         },3000);
-        //$("#player-container").css({'transform':'translateY(-150%)'});
-        //show player
-       // $("#cc-toolbox").css({'transform':'translateX(-150%)'});
-        //$("#player-container").css({'transform':'translateY(0)'});
 
-
-         function show(a) {
-             $(a).css("display","block");
-             $("#center-dialog").css("display","block");
-         };
-        function hide(a) {
-            $(a).css("display","none");
-            $("#center-dialog").css("display","none");
-        };
+       // show start game
         setTimeout(()=>{
             show("#start-dialog")
         },10);
         setTimeout(()=>{
             hide("#start-dialog")
         },1000);
+        //show choose word dialog
+        setTimeout(()=>{
+            show("#word-dialog")
+        },2000);
+        setTimeout(()=>{
+            hide("#word-dialog")
+        },4000);
+        // show result
         setTimeout(()=>{
             show("#score-dialog");
-        },1500);
+        },5000);
         setTimeout(()=>{
             hide("#score-dialog")
-        },4000);
+        },6000);
 
+        //show and hide
+        function show(a) {
+            $(a).css("display","block");
+            $("#center-dialog").css("display","block");
+        };
+        function hide(a) {
+            $(a).css("display","none");
+            $("#center-dialog").css("display","none");
+        };
     </script>
 </body>
 
