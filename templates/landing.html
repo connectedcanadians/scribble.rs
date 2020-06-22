@@ -66,13 +66,15 @@
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
-        initialSlide :2,
+        //start avatar
+        initialSlide :1,
         speed:300,
         loop : true,
         grabCursor : true,
-    /*    autoplay : {
-            delay:2000
-        },*/
+        autoplay : {
+            // delay time
+            delay:1500
+        },
         pagination: {
             el: '.swiper-pagination',
             clickable: true
@@ -82,5 +84,13 @@
             prevEl: '.swiper-button-prev',
         }
     });
+
+
+    swiper.el.onmouseover = function(){
+        swiper.autoplay.stop();
+    };
+    swiper.el.onmouseleave = function() {
+        swiper.autoplay.start();
+    };
 </script>
 </html>
