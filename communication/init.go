@@ -12,6 +12,7 @@ var (
 	errorPage       *template.Template
 	lobbyCreatePage *template.Template
 	lobbyPage       *template.Template
+	lobbyLandPage   *template.Template
 )
 
 //In this init hook we initialize all templates that could at some point be
@@ -39,6 +40,16 @@ func init() {
 		panic(parseError)
 	}
 
+    //landing Page
+    lobbyLandPage, parseError = template.New("landing.html").Parse(readTemplateFile("landing.html"))
+     	if parseError != nil {
+     		panic(parseError)
+     	}
+     	lobbyLandPage, parseError = lobbyLandPage.New("header.html").Parse(readTemplateFile("header.html"))
+     	if parseError != nil {
+     		panic(parseError)
+              	}
+
 	// Main Game Page
 	lobbyPage, parseError = template.New("lobby.html").Parse(readTemplateFile("lobby.html"))
 	if parseError != nil {
@@ -56,6 +67,7 @@ func setupRoutes() {
 	//Endpoints for official webclient
 	http.Handle("/resources/", http.StripPrefix("/resources/", http.FileServer(pkger.Dir("/resources"))))
 	http.HandleFunc("/", homePage)
+	http.HandleFunc("/ssrlanding",ssrLanding)
 	http.HandleFunc("/ssrEnterLobby", ssrEnterLobby)
 	http.HandleFunc("/ssrCreateLobby", ssrCreateLobby)
 

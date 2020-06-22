@@ -20,7 +20,12 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
-
+func ssrLanding(w http.ResponseWriter, r *http.Request) {
+	err := lobbyLandPage.ExecuteTemplate(w, "landing.html", createDefaultLobbyCreatePageData())
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
 func createDefaultLobbyCreatePageData() *CreatePageData {
 
 	return &CreatePageData{
@@ -59,7 +64,6 @@ func ssrCreateLobby(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, formParseError.Error(), http.StatusBadRequest)
 		return
 	}
-
 	language, languageInvalid := parseLanguage(r.Form.Get("language"))
 	drawingTime, drawingTimeInvalid := parseDrawingTime(r.Form.Get("drawing_time"))
 	rounds, roundsInvalid := parseRounds(r.Form.Get("rounds"))

@@ -1,0 +1,113 @@
+body{
+    background: white;
+}
+.landbox{
+    width: 40%;
+    height: 70vh;
+    background: #EEF7EF;
+    margin-left:50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.landbox .title{
+    margin: 3vh 0;
+    text-align: center;
+    font: Bold 3rem Roboto;
+    letter-spacing: 0px;
+    color: #CC362E;
+    opacity: 1;
+}
+
+.landbox .name p{
+    margin: 2vh 0 ;
+    text-align: center;
+    font: bold 1rem Roboto;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.landbox .name input{
+    width: 10vw;
+    height: 3rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 4px #00000029;
+    border: 1px solid #363636;
+    border-radius: 8px;
+    opacity: 1;
+}
+.avatar{
+    width: 100%;
+    overflow: hidden;
+}
+.avatar p{
+    margin: 2vh 0 ;
+    text-align: center;
+    font: bold 1rem Roboto;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.landbox .playgame{
+    width: 40%;
+}
+.landbox .playgame .btn{
+    background: #CC362E 0% 0% no-repeat padding-box;
+    border: 2px solid #CC362E;
+    border-radius: 78px;
+    opacity: 1;
+    margin-bottom: 3vh;
+}
+.btn p{
+    line-height: 100%;
+    text-align: center;
+    font: Bold 1rem Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin: 10px;
+}
+.swiper-container {
+    width: 70%;
+}
+.swiper-slide {
+    width:60%;
+    text-align: center;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide img{
+    width:40%
+}
+.swiper-pagination{
+    position: initial;
+}
+.swiper-button-next{
+    color: #CC362E;
+    right:20%
+}
+.swiper-button-next:after{
+    font-size:1.5rem;
+    font-weight:bold ;
+}
+.swiper-button-prev{
+    color:  #97D87F;;
+    left:20%
+}
+.swiper-button-prev:after{
+    font-size:1.5rem;
+    font-weight:bold ;
+}

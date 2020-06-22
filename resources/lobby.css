@@ -530,21 +530,21 @@ body {
     justify-content: space-evenly;
     align-items: center;
 }
-.small-circle{
+.small.circle{
     width: 1.464vw;
     height: 3vh;
     border-radius: 1.5vh;
     background-color: var(--color);
     box-shadow: inset 0 0 0 2px white;
 }
-.medium-circle{
+.medium.circle{
     width: 2.196vw;
     height: 4.5vh;
     border-radius: 2.25vh;
     background-color: var(--color);
     box-shadow: inset 0 0 0 2px white;
 }
-.huge-circle{
+.huge.circle{
     width: 2.928vw;
     height: 6vh;
     border-radius: 3vh;
@@ -563,12 +563,12 @@ body {
     .draw{
         height: 5.368vw;
     }
-    .small-circle{
+    .small.circle{
         height: 1.46vw;
     }
-    .medium-circle {
+    .medium.circle {
         height: 2.196vw;}
-    .huge-circle {
+    .huge.circle {
         height: 2.928vw;}
     .show-color{
         height: 5.3vw;
@@ -582,5 +582,9 @@ body {
     }
     .video-grid {
         grid-template-rows: 9vw 9vw 9vw 9vw;
+    }
+    .playerBox .name{
+    width: 8vw;
+        overflow: hidden;
     }
 }

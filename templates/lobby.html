@@ -4,6 +4,7 @@
 
 <head>
     <title>Connected Canadians Social Game</title>
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="/resources/style.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/lobby.css"/>
@@ -14,7 +15,7 @@
 <noscript><span class="noscript">Hey, seems like you've disabled JavaScript.
             I get it ... but you are trying to play an interactive drawing game
             here, so you have to turn on JavaScript.</span></noscript>
-
+<body>
 {{template "header"}}
 
 <div id="lobby">
@@ -31,8 +32,9 @@
              <span>10</span>
         </span>
     </div>
-    <div id="player-container"></div>
-    <div id="rounds"></div>
+    <div id="player-container">
+        <div id="rounds"></div>
+    </div>
     <div id="drawing-board-wrapper">
            <div id="word-container">
                <span class="guess-letter guess-letter-underline">Welcome</span>
@@ -115,9 +117,9 @@
                      <p>Draw</p>
                  </div>
                  <div class="brush-group">
-                     <div class="small-circle active" onclick="setLineWidth(15)"></div>
-                     <div class="medium-circle" onclick="setLineWidth(30)"></div>
-                     <div class="huge-circle" onclick="setLineWidth(40)"></div>
+                     <div class="small circle active" onclick="setLineWidth(15,this)"></div>
+                     <div class="medium circle" onclick="setLineWidth(30,this)"></div>
+                     <div class="huge circle" onclick="setLineWidth(40,this)"></div>
                      <div class="brush-size">
                          Brush Size
                      </div>
@@ -205,8 +207,9 @@
     const wordButtonZero = document.getElementById("word-button-zero");
     const wordButtonOne = document.getElementById("word-button-one");
     const wordButtonTwo = document.getElementById("word-button-two");
+    const toolBrush=document.querySelectorAll(".circle");
 
-   // const noSoundIcon = "🔇";
+    // const noSoundIcon = "🔇";
    // const soundIcon = "🔊";
    // const soundToggleLabel = document.getElementById("sound-toggle-label");
    // let sound = localStorage.getItem("sound") === "true";
@@ -237,6 +240,7 @@
         drawingBoard.width = drawingBoard.clientWidth;
         drawingBoard.height = drawingBoard.clientHeight;
         setLineWidth(localLineWidthUnscaled);
+
         // chat.style.maxHeight = drawingBoard.height + "px";
     }
 
@@ -284,7 +288,15 @@
         //updateCursor();
     }
 
-    function setLineWidth(value) {
+    function setLineWidth(value,ele) {
+        if(ele){
+            [...toolBrush].forEach(item=>{
+                item['className']=item['className'].replace("active", "");
+            });
+         ele.className=ele.className+" active";
+        }
+
+
         localLineWidthUnscaled = value;
         localLineWidth = value * scaleDownFactor();
         updateCursor();
@@ -424,7 +436,7 @@
         } else if (parsed.type === "clear-drawing-board") {
             clear(context)
         } else if (parsed.type === "next-turn") {
-            $("#cc-toolbox").css({'transform':'translateX(-150%)'});
+            $("#cc-toolbox").css({'transform':'translateX(-200%)'});
             $("#player-container").css({'transform':'translateX(0)'});
             //If a player doesn't choose, the dialog will still be up.
             wordDialog.style.display = "none";
@@ -445,7 +457,7 @@
             promptWords(parsed.data[0], parsed.data[1], parsed.data[2]);
             show("#word-dialog")
             $("#cc-toolbox").css({'transform':'translateX(0)'});
-            $("#player-container").css({'transform':'translateX(-150%)'});   
+            $("#player-container").css({'transform':'translateX(-200%)'});
         }
     };
 
@@ -500,7 +512,7 @@
     //         <div class="playerScore">0</div>
     //     </div> 
     function applyPlayers(players) {
-        playerContainer.innerHTML = "";
+      /*  playerContainer.innerHTML = "";*/
         players.forEach(function (player) {
             //We don't wanna show the disconnected players.
             if (!player.connected) {
@@ -845,7 +857,7 @@
         );
     </script>
     <script>
-        //listrener screen size
+        //listener screen size
         window.addEventListener("resize",()=>{
             window.innerWidth<window.innerHeight?$(".mask").css("display","flex"):$(".mask").css("display","none");
         });
@@ -900,3 +912,7 @@
 </body>
 
 </html>
+
+
+
+

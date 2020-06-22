@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scribble.rs</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/resources/style.css"/>
+    <link rel="icon" type="image/png" href="/resources/favicon.png"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/landbox.css">
+</head>
+<body>
+{{template "header"}}
+<div class="landbox">
+    <div class="title">
+        Scribble Game
+    </div>
+    <div class="name">
+        <p>Enter your name</p>
+        <input type="text">
+    </div>
+    <div class="avatar">
+       <p>Select an avatar</p>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_1@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_2@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_3@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_4@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_5@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_6@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_7@2x.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../resources/image/avatar_8@2x.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <div class="playgame">
+        <div class="btn">
+            <p>
+                Play Game
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        initialSlide :2,
+        speed:300,
+        loop : true,
+        grabCursor : true,
+    /*    autoplay : {
+            delay:2000
+        },*/
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    });
+</script>
+</html>
