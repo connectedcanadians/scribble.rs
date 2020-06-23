@@ -90,7 +90,8 @@ body{
     align-items: center;
 }
 .swiper-slide img{
-    width:40%
+    width:30%;
+    margin-bottom:10px;
 }
 .swiper-pagination{
     position: initial;
