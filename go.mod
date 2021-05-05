@@ -9,6 +9,8 @@ require (
 	github.com/agnivade/levenshtein v1.0.3
 	github.com/dgryski/trifles v0.0.0-20200323201526-dd97f9abfb48 // indirect
 	github.com/dustinkirkland/golang-petname v0.0.0-20191129215211-8e5a1ed0cff0
+	github.com/fatih/color v1.10.0 // indirect
+	github.com/githubnemo/CompileDaemon v1.2.1 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/gorilla/websocket v1.4.2
 	github.com/kr/pretty v0.1.0

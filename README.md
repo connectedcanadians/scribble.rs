@@ -62,21 +62,29 @@ It uses port `80`.
 
 There are many ways you can contribute:
 
-* Update / Add documentation in the wiki of the GitHub repository
-* Extend this README
-* Create issues
-* Solve issues by creating Pull Requests
-* Tell your friends about the project
-* Curating the word lists
+- Update / Add documentation in the wiki of the GitHub repository
+- Extend this README
+- Create issues
+- Solve issues by creating Pull Requests
+- Tell your friends about the project
+- Curating the word lists
 
 ## Connected Canadians setups
+
 1. Install go
 1. Install CompileDaemon `go get github.com/githubnemo/CompileDaemon`
 1. `./run.sh`
 1. When you make changes to any file, refresh your browser tab http://localhost:8080/
 
+## Building and deploying on cloud builds from CLI
+
+1. Install gcloud cli tool https://cloud.google.com/sdk/docs/install
+1. Authenticate and login `gcloud auth login`
+1. Set the project `gcloud config set project socialgaming`
+1. `gcloud builds submit`
+
 ## Credits
 
-* Favicon - [Fredy Sujono](https://www.iconfinder.com/freud)
-* Rubber Icon - Made by [Pixel Buddha](https://www.flaticon.com/authors/pixel-buddha) from [flaticon.com](https://flaticon.com)
-* Fill Bucket Icon - Made by [inipagistudio](https://www.flaticon.com/authors/inipagistudio) from [flaticon.com](https://flaticon.com)
+- Favicon - [Fredy Sujono](https://www.iconfinder.com/freud)
+- Rubber Icon - Made by [Pixel Buddha](https://www.flaticon.com/authors/pixel-buddha) from [flaticon.com](https://flaticon.com)
+- Fill Bucket Icon - Made by [inipagistudio](https://www.flaticon.com/authors/inipagistudio) from [flaticon.com](https://flaticon.com)
