@@ -81,7 +81,16 @@ There are many ways you can contribute:
 1. Install gcloud cli tool https://cloud.google.com/sdk/docs/install
 1. Authenticate and login `gcloud auth login`
 1. Set the project `gcloud config set project socialgaming`
+1. `gcloud app deploy` to deploy the application
+
+### Build and upload to a google cloud storage
+
 1. `gcloud builds submit`
+1. `gcloud config set run/platform gke`
+1. `gcloud config set compute/zone us-central1-c`
+1. `gcloud services enable container.googleapis.com containerregistry.googleapis.com cloudbuild.googleapis.com`
+1. `gcloud config set run/cluster socialgame-cluster`
+1. `gcloud config set run/cluster_location us-central1-c`
 
 ## Credits
 

@@ -6,5 +6,5 @@ steps:
     args: ["go", "build", "-o", "main", "."]
 artifacts:
   objects:
-    location: "gs://artifacts.socialgaming.appspot.com"
+    location: "gs://artifacts.socialgaming.appspot.com/dev"
     paths: ["./main"]
