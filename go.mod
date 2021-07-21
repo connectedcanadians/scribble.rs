@@ -7,6 +7,8 @@ require (
 	github.com/Bios-Marcel/cmdp v0.0.0-20190623190758-6760aca2c54e
 	github.com/Bios-Marcel/discordemojimap v1.0.1
 	github.com/agnivade/levenshtein v1.0.3
+	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
+	github.com/alecthomas/units v0.0.0-20210208195552-ff826a37aa15 // indirect
 	github.com/dgryski/trifles v0.0.0-20200323201526-dd97f9abfb48 // indirect
 	github.com/dustinkirkland/golang-petname v0.0.0-20191129215211-8e5a1ed0cff0
 	github.com/go-redis/redis v6.15.9+incompatible
@@ -21,5 +23,6 @@ require (
 	github.com/stretchr/testify v1.5.1
 	github.com/vmihailenco/msgpack v4.0.4+incompatible
 	google.golang.org/appengine v1.6.7 // indirect
+	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 )

@@ -1,7 +1,11 @@
-FROM golang:latest
-RUN mkdir /app
-ADD . /app/
-WORKDIR /app
-RUN go mod download
-RUN go build -o main .
-CMD ["/app/main", "--portHTTP=80"]
+FROM debian
+
+RUN apt-get update  
+RUN apt-get install -y ca-certificates
+
+COPY ./scribblers /scribblers
+ADD /templates /templates
+ADD /resources /resources
+
+
+CMD /scribblers

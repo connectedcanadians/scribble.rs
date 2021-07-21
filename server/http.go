@@ -1,7 +1,7 @@
 package server
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -23,9 +23,11 @@ func makeServeMux() *http.ServeMux {
 }
 
 // Serve runs http server on the port
-func Serve(port int) error {
+func Serve(addr string) error {
 	mux := makeServeMux()
-	return http.ListenAndServe(fmt.Sprintf(":%d", port), mux)
+
+	log.Println("starting webserver on ", addr)
+	return http.ListenAndServe(addr, mux)
 }
 
 //userFacingError will return the occurred error as a custom html page to the caller.

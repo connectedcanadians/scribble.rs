@@ -259,7 +259,7 @@ func ssrEnterLobbyHandler(w http.ResponseWriter, r *http.Request) {
 	pageData := &LobbyData{
 		AgoraUID:               uid,
 		AgoraToken:             token,
-		AgoraAppID:             agoraAppID,
+		AgoraAppID:             AgoraAppID,
 		LobbyID:                lobby.ID,
 		DrawingBoardBaseWidth:  DrawingBoardBaseWidth,
 		DrawingBoardBaseHeight: DrawingBoardBaseHeight,

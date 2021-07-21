@@ -28,35 +28,43 @@ Run the following to build the application:
 Install Go, Yarn.
 
 ```shell
-git clone https://github.com/scribble-rs/scribble.rs.git
-cd scribble.rs
+# after cloning this repository...
 go mod tidy
-make bundle build
-./start.sh
+
+# bundle webpack
+make bundle 
+
+# build the go binary
+make build
+
+# run tests
+make test
+
+# run locally
+make up
+
+# dockerize
+make dockerize
+
+# push docker image to docker repository
+make push
+
 ```
 
 This will produce a portable binary called `scribblers`. The binary doesn't
 have any dependencies and should run on every system as long as it has the
 same architecture and OS family as the system it was compiled on.
 
-The default port will be `8080`, and can be configured with the `-portHTTP` flag.
+# Configuration via Environment Variables
 
-The agora key is provided by environment variable `AGORA_CERT`
+`HTTP_PORT` defaults to `8080`
 
-It should run on any system that go supports as a compilation target.
+`REDIS_ADDR` defaults to `127.0.0.1:6379`
 
-This application uses go modules, therefore you need to make sure that you
-have go version `1.13` or higher.
+`AGORA_APP_ID` defaults to `89f97462e28540e68a6a90760c9ca113` ... get one at https://www.agora.io/en/
 
-## Docker
+`AGORA_CERT`
 
-Alternatively there's a docker container (which is out of date, ds0nt is guessing):
-
-```shell
-docker pull biosmarcel/scribble.rs
-```
-
-It uses port `80`.
 
 ## Contributing
 
