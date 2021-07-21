@@ -41,6 +41,7 @@ type LobbySettings struct {
 	CustomWordsChance int
 	ClientsPerIPLimit int
 	EnableVotekick    bool
+	Language          string
 }
 
 func (m *LobbySettings) MarshalBinary() ([]byte, error) {
@@ -136,7 +137,7 @@ type Rounds struct {
 // NewLobby allows creating a lobby, optionally returning errors that
 // occured during creation.
 func NewLobby(ownerName, session, language string, avatarId int, settings LobbySettings) (*Player, *Lobby, error) {
-
+	settings.Language = language
 	lobby := &Lobby{
 		ID: uuid.NewV4().String(),
 
@@ -164,7 +165,7 @@ func NewLobby(ownerName, session, language string, avatarId int, settings LobbyS
 	lobby.State.Owner = player.ID
 
 	// Read wordlist according to the chosen language
-	words, err := readWordList(language)
+	words, err := readWordList(settings.Language)
 	if err != nil {
 		//TODO Remove lobby, since we errored.
 		return nil, nil, err

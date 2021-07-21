@@ -27,6 +27,7 @@ build: pkged.go
 # build docker image with go binary
 dockerize:
 	docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
+	docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} scribble:latest
 
 # push docker image to repo
 push:
@@ -34,7 +35,10 @@ push:
 
 # run locally -- first 
 up:
-	docker-compose up -d
+	docker-compose up -d scribblers redis
+
+log:
+	docker-compose logs -f scribblers
 
 # stop locally
 down: 

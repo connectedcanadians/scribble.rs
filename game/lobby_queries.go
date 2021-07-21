@@ -2,6 +2,8 @@ package game
 
 import (
 	"fmt"
+
+	"github.com/kr/pretty"
 )
 
 // GetLobby returns a Lobby that has a matching ID or no Lobby if none could
@@ -27,7 +29,19 @@ func GetLoadLobby(id string) (*Lobby, error) {
 		return nil, err
 	}
 
+	pretty.Println(lobby)
+
 	lobby.turnDone = make(chan struct{})
+
+	// Read wordlist according to the chosen language
+	words, err := readWordList(lobby.Settings.Language)
+	if err != nil {
+		//TODO Remove lobby, since we errored.
+		return nil, err
+	}
+
+	lobby.words = words
+	lobby.alreadyUsedWords = []string{}
 
 	lobbiesMu.Lock()
 	lobbies = append(lobbies, lobby)

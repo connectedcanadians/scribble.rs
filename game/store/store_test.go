@@ -42,11 +42,13 @@ func requireLobbiesEqual(t *testing.T, expected, actual *game.Lobby) {
 }
 
 func TestSaveLobby(t *testing.T) {
+	redisStore, err := NewRedisStore(&redis.Options{
+		Addr: "127.0.01:6379",
+	})
+	require.Nil(t, err)
+
 	stores := []*RedisStore{
-		// NewMemStore(),
-		NewRedisStore(&redis.Options{
-			Addr: "127.0.01:6379",
-		}),
+		redisStore,
 	}
 
 	for _, st := range stores {

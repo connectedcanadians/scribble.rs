@@ -29,11 +29,15 @@ func main() {
 	//Setting the seed in order for the petnames to be random.
 	rand.Seed(time.Now().UnixNano())
 
-	game.Store = store.NewRedisStore(&redis.Options{
+	redisStore, err := store.NewRedisStore(&redis.Options{
 		Addr: *redisAddr,
 	})
+	if err != nil {
+		log.Fatal("Could not connect to Redis", err)
+	}
+	game.Store = redisStore
 
-	err := server.Serve(fmt.Sprintf(":%d", *port))
+	err = server.Serve(fmt.Sprintf(":%d", *port))
 	if err != nil {
 		log.Fatal("HTTP Server error:", err)
 	}

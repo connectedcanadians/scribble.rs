@@ -12,11 +12,16 @@ type RedisStore struct {
 	client *redis.Client
 }
 
-func NewRedisStore(options *redis.Options) *RedisStore {
+func NewRedisStore(options *redis.Options) (*RedisStore, error) {
 	client := redis.NewClient(options)
+
+	_, err := client.Ping().Result()
+	if err != nil {
+		return nil, err
+	}
 	return &RedisStore{
 		client: client,
-	}
+	}, nil
 }
 
 func (m *RedisStore) SaveSettings(id string, l *game.LobbySettings) error {

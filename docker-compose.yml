@@ -2,10 +2,11 @@ version: '3'
 
 services:
   scribblers:
-    build: 
-      context: .
+    image: scribble:latest
     ports:
       - 8080:8080
+    environment:
+      REDIS_ADDR: "redis:6379"
   redis:
     image: redis
   redis_test:

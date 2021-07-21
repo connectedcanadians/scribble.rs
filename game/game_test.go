@@ -12,9 +12,11 @@ import (
 )
 
 func TestGame(t *testing.T) {
-	game.Store = store.NewRedisStore(&redis.Options{
+	redisStore, err := store.NewRedisStore(&redis.Options{
 		Addr: "127.0.01:6379",
 	})
+	require.Nil(t, err)
+	game.Store = redisStore
 
 	game.TriggerSimpleUpdateEvent = func(eventType string, lobby *game.Lobby) {
 		fmt.Println("TriggerSimpleUpdateEvent", eventType)
